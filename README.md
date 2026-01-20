@@ -2,6 +2,20 @@
 
 A native macOS disk cleanup utility built with SwiftUI. Scan and clean caches, logs, developer files, and more to reclaim disk space.
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/1.png" width="600" alt="Dashboard - Storage Overview">
+</p>
+
+<p align="center">
+  <img src="screenshots/2.png" width="600" alt="Quick Actions and Scan Categories">
+</p>
+
+<p align="center">
+  <img src="screenshots/3.png" width="600" alt="Large & Old Files Scanner">
+</p>
+
 ## Features
 
 SweepYourMac scans 12 categories of cleanable files:
@@ -47,8 +61,8 @@ Download the latest release from the [Releases](../../releases) page.
 
 ```bash
 # Clone the repository
-git clone https://github.com/user/SweepYourMac.git
-cd SweepYourMac
+git clone https://github.com/pyramidion-solutions/sweep-your-mac.git
+cd sweep-your-mac
 
 # Build with Xcode
 xcodebuild -project SweepYourMac.xcodeproj -scheme SweepYourMac -configuration Release build
