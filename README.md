@@ -1,5 +1,11 @@
 # SweepYourMac
 
+![macOS](https://img.shields.io/badge/macOS-13.0+-blue)
+![Swift](https://img.shields.io/badge/Swift-5.9-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
+![GitHub release](https://img.shields.io/github/v/release/pyramidion-solutions/sweep-your-mac)
+![GitHub stars](https://img.shields.io/github/stars/pyramidion-solutions/sweep-your-mac)
+
 > A free, open-source alternative to CleanMyMac
 
 A native macOS disk cleaner built with SwiftUI. Reclaim disk space by cleaning caches, logs, Xcode DerivedData, Docker images, node_modules, and more.
