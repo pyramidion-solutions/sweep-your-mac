@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1000001000000000000001A /* SweepYourMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000F1 /* SweepYourMacApp.swift */; };
+		B1000001000000000000001B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000F2 /* ContentView.swift */; };
+		B1000001000000000000001C /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000F3 /* DashboardView.swift */; };
+		B1000001000000000000001D /* ScanCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000F4 /* ScanCategory.swift */; };
+		B1000001000000000000001E /* DiskSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000F5 /* DiskSpace.swift */; };
+		B1000001000000000000001F /* DiskSpaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000F6 /* DiskSpaceManager.swift */; };
+		B10000010000000000000020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000F7 /* Assets.xcassets */; };
+		B10000010000000000000021 /* ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000FA /* ScanResult.swift */; };
+		B10000010000000000000022 /* SystemCachesScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000FB /* SystemCachesScanner.swift */; };
+		B10000010000000000000023 /* SystemCachesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000FC /* SystemCachesView.swift */; };
+		B10000010000000000000024 /* DeveloperCachesScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000FD /* DeveloperCachesScanner.swift */; };
+		B10000010000000000000025 /* DeveloperCachesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000FE /* DeveloperCachesView.swift */; };
+		B10000010000000000000026 /* BrowserCachesScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000100000000000000FF /* BrowserCachesScanner.swift */; };
+		B10000010000000000000027 /* BrowserCachesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000000F /* BrowserCachesView.swift */; };
+		B10000010000000000000028 /* TrashScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000010 /* TrashScanner.swift */; };
+		B10000010000000000000029 /* TrashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000011 /* TrashView.swift */; };
+		B1000001000000000000002A /* LogsScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000012 /* LogsScanner.swift */; };
+		B1000001000000000000002B /* LogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000013 /* LogsView.swift */; };
+		B1000001000000000000002C /* iOSBackupsScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000014 /* iOSBackupsScanner.swift */; };
+		B1000001000000000000002D /* iOSBackupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000015 /* iOSBackupsView.swift */; };
+		B1000001000000000000002E /* MailAttachmentsScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000016 /* MailAttachmentsScanner.swift */; };
+		B1000001000000000000002F /* MailAttachmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000017 /* MailAttachmentsView.swift */; };
+		B10000010000000000000030 /* LargeOldFilesScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000018 /* LargeOldFilesScanner.swift */; };
+		B10000010000000000000031 /* LargeOldFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000019 /* LargeOldFilesView.swift */; };
+		B10000010000000000000032 /* DockerScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000003A /* DockerScanner.swift */; };
+		B10000010000000000000033 /* DockerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000003B /* DockerView.swift */; };
+		B10000010000000000000034 /* ApplicationLeftoversScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000003C /* ApplicationLeftoversScanner.swift */; };
+		B10000010000000000000035 /* ApplicationLeftoversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000003D /* ApplicationLeftoversView.swift */; };
+		B10000010000000000000036 /* LanguageFilesScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000003E /* LanguageFilesScanner.swift */; };
+		B10000010000000000000037 /* LanguageFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001000000000000003F /* LanguageFilesView.swift */; };
+		B10000010000000000000038 /* ViewModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000040 /* ViewModelStore.swift */; };
+		B10000010000000000000041 /* SecurityValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000051 /* SecurityValidator.swift */; };
+		B10000010000000000000042 /* SafeFileOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000052 /* SafeFileOperations.swift */; };
+		B10000010000000000000063 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000060 /* PermissionManager.swift */; };
+		B10000010000000000000064 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000061 /* AppLogger.swift */; };
+		B10000010000000000000065 /* PermissionBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000010000000000000062 /* PermissionBannerView.swift */; };
+		F0556AC552DA20D079D8F53E /* ScanCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1F808E088401E69E7CAC70 /* ScanCoordinator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2523C26B2F1F5711008F6348 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B10000010000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B100000100000000000000C1;
+			remoteInfo = SweepYourMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1F1F808E088401E69E7CAC70 /* ScanCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScanCoordinator.swift; sourceTree = "<group>"; };
+		2523C2672F1F5711008F6348 /* SweepYourMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SweepYourMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1000001000000000000000F /* BrowserCachesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCachesView.swift; sourceTree = "<group>"; };
+		B10000010000000000000010 /* TrashScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashScanner.swift; sourceTree = "<group>"; };
+		B10000010000000000000011 /* TrashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashView.swift; sourceTree = "<group>"; };
+		B10000010000000000000012 /* LogsScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsScanner.swift; sourceTree = "<group>"; };
+		B10000010000000000000013 /* LogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsView.swift; sourceTree = "<group>"; };
+		B10000010000000000000014 /* iOSBackupsScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBackupsScanner.swift; sourceTree = "<group>"; };
+		B10000010000000000000015 /* iOSBackupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBackupsView.swift; sourceTree = "<group>"; };
+		B10000010000000000000016 /* MailAttachmentsScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAttachmentsScanner.swift; sourceTree = "<group>"; };
+		B10000010000000000000017 /* MailAttachmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailAttachmentsView.swift; sourceTree = "<group>"; };
+		B10000010000000000000018 /* LargeOldFilesScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeOldFilesScanner.swift; sourceTree = "<group>"; };
+		B10000010000000000000019 /* LargeOldFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeOldFilesView.swift; sourceTree = "<group>"; };
+		B1000001000000000000003A /* DockerScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockerScanner.swift; sourceTree = "<group>"; };
+		B1000001000000000000003B /* DockerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockerView.swift; sourceTree = "<group>"; };
+		B1000001000000000000003C /* ApplicationLeftoversScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLeftoversScanner.swift; sourceTree = "<group>"; };
+		B1000001000000000000003D /* ApplicationLeftoversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationLeftoversView.swift; sourceTree = "<group>"; };
+		B1000001000000000000003E /* LanguageFilesScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFilesScanner.swift; sourceTree = "<group>"; };
+		B1000001000000000000003F /* LanguageFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFilesView.swift; sourceTree = "<group>"; };
+		B10000010000000000000040 /* ViewModelStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelStore.swift; sourceTree = "<group>"; };
+		B10000010000000000000051 /* SecurityValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityValidator.swift; sourceTree = "<group>"; };
+		B10000010000000000000052 /* SafeFileOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeFileOperations.swift; sourceTree = "<group>"; };
+		B10000010000000000000060 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		B10000010000000000000061 /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
+		B10000010000000000000062 /* PermissionBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionBannerView.swift; sourceTree = "<group>"; };
+		B100000100000000000000E1 /* SweepYourMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SweepYourMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B100000100000000000000F1 /* SweepYourMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweepYourMacApp.swift; sourceTree = "<group>"; };
+		B100000100000000000000F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B100000100000000000000F3 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		B100000100000000000000F4 /* ScanCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanCategory.swift; sourceTree = "<group>"; };
+		B100000100000000000000F5 /* DiskSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskSpace.swift; sourceTree = "<group>"; };
+		B100000100000000000000F6 /* DiskSpaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskSpaceManager.swift; sourceTree = "<group>"; };
+		B100000100000000000000F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B100000100000000000000F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B100000100000000000000F9 /* SweepYourMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SweepYourMac.entitlements; sourceTree = "<group>"; };
+		B100000100000000000000FA /* ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResult.swift; sourceTree = "<group>"; };
+		B100000100000000000000FB /* SystemCachesScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCachesScanner.swift; sourceTree = "<group>"; };
+		B100000100000000000000FC /* SystemCachesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCachesView.swift; sourceTree = "<group>"; };
+		B100000100000000000000FD /* DeveloperCachesScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCachesScanner.swift; sourceTree = "<group>"; };
+		B100000100000000000000FE /* DeveloperCachesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCachesView.swift; sourceTree = "<group>"; };
+		B100000100000000000000FF /* BrowserCachesScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserCachesScanner.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2523C2682F1F5711008F6348 /* SweepYourMacTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SweepYourMacTests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2523C2642F1F5711008F6348 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B100000100000000000000D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B100000100000000000000A1 = {
+			isa = PBXGroup;
+			children = (
+				B100000100000000000000A2 /* SweepYourMac */,
+				2523C2682F1F5711008F6348 /* SweepYourMacTests */,
+				B100000100000000000000A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B100000100000000000000A2 /* SweepYourMac */ = {
+			isa = PBXGroup;
+			children = (
+				B100000100000000000000F1 /* SweepYourMacApp.swift */,
+				B100000100000000000000F2 /* ContentView.swift */,
+				B100000100000000000000A4 /* Views */,
+				B100000100000000000000A5 /* Models */,
+				B100000100000000000000A6 /* Services */,
+				B100000100000000000000F7 /* Assets.xcassets */,
+				B100000100000000000000F8 /* Info.plist */,
+				B100000100000000000000F9 /* SweepYourMac.entitlements */,
+			);
+			path = SweepYourMac;
+			sourceTree = "<group>";
+		};
+		B100000100000000000000A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B100000100000000000000E1 /* SweepYourMac.app */,
+				2523C2672F1F5711008F6348 /* SweepYourMacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B100000100000000000000A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B100000100000000000000F3 /* DashboardView.swift */,
+				B10000010000000000000062 /* PermissionBannerView.swift */,
+				B100000100000000000000FC /* SystemCachesView.swift */,
+				B100000100000000000000FE /* DeveloperCachesView.swift */,
+				B1000001000000000000000F /* BrowserCachesView.swift */,
+				B10000010000000000000011 /* TrashView.swift */,
+				B10000010000000000000013 /* LogsView.swift */,
+				B10000010000000000000015 /* iOSBackupsView.swift */,
+				B10000010000000000000017 /* MailAttachmentsView.swift */,
+				B10000010000000000000019 /* LargeOldFilesView.swift */,
+				B1000001000000000000003B /* DockerView.swift */,
+				B1000001000000000000003D /* ApplicationLeftoversView.swift */,
+				B1000001000000000000003F /* LanguageFilesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B100000100000000000000A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B100000100000000000000F4 /* ScanCategory.swift */,
+				B100000100000000000000F5 /* DiskSpace.swift */,
+				B100000100000000000000FA /* ScanResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B100000100000000000000A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B100000100000000000000F6 /* DiskSpaceManager.swift */,
+				B10000010000000000000040 /* ViewModelStore.swift */,
+				B10000010000000000000060 /* PermissionManager.swift */,
+				B10000010000000000000061 /* AppLogger.swift */,
+				B10000010000000000000051 /* SecurityValidator.swift */,
+				B10000010000000000000052 /* SafeFileOperations.swift */,
+				B100000100000000000000FB /* SystemCachesScanner.swift */,
+				B100000100000000000000FD /* DeveloperCachesScanner.swift */,
+				B100000100000000000000FF /* BrowserCachesScanner.swift */,
+				B10000010000000000000010 /* TrashScanner.swift */,
+				B10000010000000000000012 /* LogsScanner.swift */,
+				B10000010000000000000014 /* iOSBackupsScanner.swift */,
+				B10000010000000000000016 /* MailAttachmentsScanner.swift */,
+				B10000010000000000000018 /* LargeOldFilesScanner.swift */,
+				B1000001000000000000003A /* DockerScanner.swift */,
+				B1000001000000000000003C /* ApplicationLeftoversScanner.swift */,
+				B1000001000000000000003E /* LanguageFilesScanner.swift */,
+				1F1F808E088401E69E7CAC70 /* ScanCoordinator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2523C2662F1F5711008F6348 /* SweepYourMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2523C26F2F1F5711008F6348 /* Build configuration list for PBXNativeTarget "SweepYourMacTests" */;
+			buildPhases = (
+				2523C2632F1F5711008F6348 /* Sources */,
+				2523C2642F1F5711008F6348 /* Frameworks */,
+				2523C2652F1F5711008F6348 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2523C26C2F1F5711008F6348 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2523C2682F1F5711008F6348 /* SweepYourMacTests */,
+			);
+			name = SweepYourMacTests;
+			productName = SweepYourMacTests;
+			productReference = 2523C2672F1F5711008F6348 /* SweepYourMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B100000100000000000000C1 /* SweepYourMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B100000100000000000000B3 /* Build configuration list for PBXNativeTarget "SweepYourMac" */;
+			buildPhases = (
+				B100000100000000000000D1 /* Sources */,
+				B100000100000000000000D2 /* Frameworks */,
+				B100000100000000000000D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SweepYourMac;
+			productName = SweepYourMac;
+			productReference = B100000100000000000000E1 /* SweepYourMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B10000010000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					2523C2662F1F5711008F6348 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = B100000100000000000000C1;
+					};
+					B100000100000000000000C1 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = B100000100000000000000B1 /* Build configuration list for PBXProject "SweepYourMac" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B100000100000000000000A1;
+			productRefGroup = B100000100000000000000A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B100000100000000000000C1 /* SweepYourMac */,
+				2523C2662F1F5711008F6348 /* SweepYourMacTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2523C2652F1F5711008F6348 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B100000100000000000000D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000010000000000000020 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2523C2632F1F5711008F6348 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B100000100000000000000D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1000001000000000000001A /* SweepYourMacApp.swift in Sources */,
+				B1000001000000000000001B /* ContentView.swift in Sources */,
+				B1000001000000000000001C /* DashboardView.swift in Sources */,
+				B1000001000000000000001D /* ScanCategory.swift in Sources */,
+				B1000001000000000000001E /* DiskSpace.swift in Sources */,
+				B1000001000000000000001F /* DiskSpaceManager.swift in Sources */,
+				B10000010000000000000021 /* ScanResult.swift in Sources */,
+				B10000010000000000000022 /* SystemCachesScanner.swift in Sources */,
+				B10000010000000000000023 /* SystemCachesView.swift in Sources */,
+				B10000010000000000000024 /* DeveloperCachesScanner.swift in Sources */,
+				B10000010000000000000025 /* DeveloperCachesView.swift in Sources */,
+				B10000010000000000000026 /* BrowserCachesScanner.swift in Sources */,
+				B10000010000000000000027 /* BrowserCachesView.swift in Sources */,
+				B10000010000000000000028 /* TrashScanner.swift in Sources */,
+				B10000010000000000000029 /* TrashView.swift in Sources */,
+				B1000001000000000000002A /* LogsScanner.swift in Sources */,
+				B1000001000000000000002B /* LogsView.swift in Sources */,
+				B1000001000000000000002C /* iOSBackupsScanner.swift in Sources */,
+				B1000001000000000000002D /* iOSBackupsView.swift in Sources */,
+				B1000001000000000000002E /* MailAttachmentsScanner.swift in Sources */,
+				B1000001000000000000002F /* MailAttachmentsView.swift in Sources */,
+				B10000010000000000000030 /* LargeOldFilesScanner.swift in Sources */,
+				B10000010000000000000031 /* LargeOldFilesView.swift in Sources */,
+				B10000010000000000000032 /* DockerScanner.swift in Sources */,
+				B10000010000000000000033 /* DockerView.swift in Sources */,
+				B10000010000000000000034 /* ApplicationLeftoversScanner.swift in Sources */,
+				B10000010000000000000035 /* ApplicationLeftoversView.swift in Sources */,
+				B10000010000000000000036 /* LanguageFilesScanner.swift in Sources */,
+				B10000010000000000000037 /* LanguageFilesView.swift in Sources */,
+				B10000010000000000000038 /* ViewModelStore.swift in Sources */,
+				B10000010000000000000041 /* SecurityValidator.swift in Sources */,
+				B10000010000000000000042 /* SafeFileOperations.swift in Sources */,
+				B10000010000000000000063 /* PermissionManager.swift in Sources */,
+				B10000010000000000000064 /* AppLogger.swift in Sources */,
+				B10000010000000000000065 /* PermissionBannerView.swift in Sources */,
+				F0556AC552DA20D079D8F53E /* ScanCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2523C26C2F1F5711008F6348 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B100000100000000000000C1 /* SweepYourMac */;
+			targetProxy = 2523C26B2F1F5711008F6348 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2523C26D2F1F5711008F6348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pyramidions.com.SweepYourMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SweepYourMac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SweepYourMac";
+			};
+			name = Debug;
+		};
+		2523C26E2F1F5711008F6348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = pyramidions.com.SweepYourMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SweepYourMac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SweepYourMac";
+			};
+			name = Release;
+		};
+		B100000100000000000000B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B100000100000000000000B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		B100000100000000000000B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SweepYourMac/SweepYourMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SweepYourMac/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright 2025. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sweepyourmac.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B100000100000000000000B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SweepYourMac/SweepYourMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SweepYourMac/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright 2025. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sweepyourmac.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2523C26F2F1F5711008F6348 /* Build configuration list for PBXNativeTarget "SweepYourMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2523C26D2F1F5711008F6348 /* Debug */,
+				2523C26E2F1F5711008F6348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B100000100000000000000B1 /* Build configuration list for PBXProject "SweepYourMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B100000100000000000000B4 /* Debug */,
+				B100000100000000000000B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B100000100000000000000B3 /* Build configuration list for PBXNativeTarget "SweepYourMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B100000100000000000000B6 /* Debug */,
+				B100000100000000000000B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B10000010000000000000001 /* Project object */;
+}
