@@ -99,6 +99,39 @@ Contributions are welcome! Please:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## The Story
+
+One evening, my Mac showed the dreaded "Storage Almost Full" warning — **3.8GB free** out of 460GB. I needed to reclaim space fast.
+
+I started with the usual terminal commands:
+```bash
+du -sh ~/* | sort -hr | head -20
+```
+
+What followed was a 2-hour deep dive through hidden folders, discovering space hogs I never knew existed:
+
+- **18GB** in `~/.gradle/caches` — Android build cache I forgot about
+- **9.7GB** in `~/.android/avd` — Emulators I hadn't used in months
+- **11GB** in `~/Library/Caches/Google` — Chrome hoarding data
+- **22GB** in `~/fvm/versions` — Old Flutter SDKs piling up
+- **23GB** in Docker — Containers and images from forgotten projects
+- **6GB** in Homebrew caches
+- **5GB** in CocoaPods repos
+
+Command after command, folder after folder, I cleared **125GB** and went from **3.8GB → 129GB free**.
+
+But the experience was painful:
+- Running `du -sh` dozens of times
+- Googling "is it safe to delete ~/.gradle/caches"
+- Carefully typing `rm -rf` commands hoping I wouldn't break something
+- Discovering macOS Storage shows "Documents: 153GB" when the actual folder is 47GB (thanks Apple 🙄)
+
+**I thought: why isn't there an open-source CleanMyMac?**
+
+Something that knows where developers hide their caches. Something that understands Xcode DerivedData, node_modules sprawl, and Docker bloat. Something free and transparent.
+
+So I built **SweepYourMac** — the cleanup tool I wished I had that evening.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
