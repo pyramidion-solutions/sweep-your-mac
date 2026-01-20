@@ -1,6 +1,8 @@
 # SweepYourMac
 
-A native macOS disk cleanup utility built with SwiftUI. Scan and clean caches, logs, developer files, and more to reclaim disk space.
+> A free, open-source alternative to CleanMyMac
+
+A native macOS disk cleaner built with SwiftUI. Reclaim disk space by cleaning caches, logs, Xcode DerivedData, Docker images, node_modules, and more.
 
 ## Screenshots
 
