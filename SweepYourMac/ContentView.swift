@@ -32,7 +32,7 @@ struct SidebarView: View {
             }
 
             Section("Categories") {
-                ForEach(ScanCategory.allCases, id: \.self) { category in
+                ForEach(ScanCategory.allCases.filter { $0 != .nodeModules }, id: \.self) { category in
                     Label(category.displayName, systemImage: category.iconName)
                         .tag(category as ScanCategory?)
                 }
@@ -52,7 +52,7 @@ struct CategoryDetailView: View {
             SystemCachesView()
         case .browserCaches:
             BrowserCachesView()
-        case .developerCaches, .nodeModules:
+        case .developerCaches:
             DeveloperCachesView()
         case .trash:
             TrashView()

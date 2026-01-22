@@ -21,6 +21,29 @@ private struct LargeOldFilesContent: View {
 
             Divider()
 
+            // Duplicate toggle (only show when idle or when no scan has been done yet)
+            if viewModel.scanState == .idle || (!viewModel.duplicateGroups.isEmpty || viewModel.scanDuplicates) {
+                duplicateToggle
+                    .padding(.horizontal)
+                    .padding(.vertical, 4)
+                    .background(Color(NSColor.controlBackgroundColor).opacity(0.5))
+
+                Divider()
+            }
+
+            // Tab selector when both regular files and duplicates are available
+            if case .completed = viewModel.scanState, !viewModel.duplicateGroups.isEmpty {
+                Picker("View", selection: $viewModel.currentView) {
+                    Text("Large & Old Files (\(viewModel.allFilesCount) files)").tag(LargeOldFilesViewModel.ViewMode.largeOldFiles)
+                    Text("Duplicates (\(viewModel.duplicateGroups.count) groups)").tag(LargeOldFilesViewModel.ViewMode.duplicates)
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+
+                Divider()
+            }
+
             // Content
             switch viewModel.scanState {
             case .idle:
@@ -28,7 +51,11 @@ private struct LargeOldFilesContent: View {
             case .scanning(let progress):
                 scanningView(progress: progress)
             case .completed(let result):
-                resultsView(result: result)
+                if viewModel.currentView == .duplicates && !viewModel.duplicateGroups.isEmpty {
+                    duplicatesView
+                } else {
+                    resultsView(result: result)
+                }
             case .cancelled:
                 cancelledView
             case .error(let message):
@@ -68,6 +95,12 @@ private struct LargeOldFilesContent: View {
 
             scanButton
         }
+    }
+
+    private var duplicateToggle: some View {
+        Toggle("Find duplicates", isOn: $viewModel.scanDuplicates)
+            .toggleStyle(.switch)
+            .help("Also scan for duplicate files during the search")
     }
 
     private var scanButton: some View {
@@ -584,6 +617,92 @@ struct FileTypeChip: View {
         case .other: return .gray
         }
     }
+
+    // MARK: - Duplicates View
+    private var duplicatesView: some View {
+        VStack(spacing: 0) {
+            // Selection bar
+            HStack {
+                Button(action: { viewModel.selectNoneDuplicates() }) {
+                    Text("Select None")
+                        .font(.caption)
+                }
+                .buttonStyle(.link)
+
+                Spacer()
+
+                Text("\(viewModel.duplicateGroups.count) duplicate groups found")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 8)
+            .background(Color(NSColor.controlBackgroundColor).opacity(0.5))
+
+            Divider()
+
+            if viewModel.duplicateGroups.isEmpty {
+                VStack(spacing: 12) {
+                    Image(systemName: "checkmark.circle")
+                        .font(.system(size: 48))
+                        .foregroundColor(.green)
+                    Text("No duplicate files found")
+                        .font(.headline)
+                    Text("All scanned files appear to be unique")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                List {
+                    ForEach(viewModel.duplicateGroups, id: \.id) { group in
+                        DuplicateGroupRow(
+                            group: group,
+                            selectedFiles: viewModel.selectedDuplicateFiles,
+                            onSelectAllInGroup: { viewModel.selectAllDuplicatesInGroup(group) },
+                            onToggleFile: { file in viewModel.toggleDuplicateSelection(file) }
+                        )
+                    }
+                }
+                .listStyle(.inset)
+            }
+
+            Divider()
+
+            // Action bar for duplicates
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Selected: \(viewModel.selectedDuplicateFiles.count) files")
+                        .font(.subheadline)
+                    Text("\(viewModel.selectedDuplicateSize) bytes")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.orange)
+                }
+
+                Spacer()
+
+                if viewModel.isDeleting {
+                    ProgressView()
+                        .padding(.trailing, 8)
+                }
+
+                Button(action: {
+                    viewModel.showDeleteConfirmation = true
+                }) {
+                    HStack {
+                        Image(systemName: "trash")
+                        Text("Delete Selected Duplicates")
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.red)
+                .disabled(viewModel.selectedDuplicateFiles.isEmpty || viewModel.isDeleting)
+            }
+            .padding()
+            .background(Color(NSColor.controlBackgroundColor))
+        }
+    }
 }
 
 // MARK: - Large Old File Row
@@ -725,6 +844,147 @@ struct LargeOldFileRow: View {
     }
 }
 
+// MARK: - Duplicate Group Row
+struct DuplicateGroupRow: View {
+    let group: LargeOldFilesScanner.DuplicateFileGroup
+    let selectedFiles: Set<UUID>
+    let onSelectAllInGroup: () -> Void
+    let onToggleFile: (LargeOldFilesScanner.LargeOldFile) -> Void
+
+    var body: some View {
+        Section {
+            ForEach(group.files.indices, id: \.self) { index in
+                let file = group.files[index]
+                let isSelected = selectedFiles.contains(file.id)
+                let isFirst = index == 0
+
+                DuplicateFileRow(
+                    file: file,
+                    isSelected: isSelected,
+                    isFirstInGroup: isFirst,
+                    onToggle: { onToggleFile(file) }
+                )
+            }
+        } header: {
+            HStack {
+                Image(systemName: "doc.on.doc")
+                    .foregroundColor(.blue)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("\(group.files.count) identical files")
+                        .font(.headline)
+                    Text("Space wasted: \(group.formattedDuplicateSize)")
+                        .font(.subheadline)
+                        .foregroundColor(.orange)
+                }
+                Spacer()
+                Button(action: onSelectAllInGroup) {
+                    Text("Select All But One")
+                        .font(.caption)
+                }
+                .buttonStyle(.bordered)
+            }
+            .padding(.vertical, 4)
+        }
+    }
+}
+
+// MARK: - Duplicate File Row
+struct DuplicateFileRow: View {
+    let file: LargeOldFilesScanner.LargeOldFile
+    let isSelected: Bool
+    let isFirstInGroup: Bool
+    let onToggle: () -> Void
+
+    @State private var isHovered = false
+
+    var body: some View {
+        HStack(spacing: 12) {
+            // Checkbox (disabled for first file)
+            if isFirstInGroup {
+                Image(systemName: "checkmark.circle.fill")
+                    .foregroundColor(.green)
+                    .font(.title3)
+            } else {
+                Button(action: onToggle) {
+                    Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                        .foregroundColor(isSelected ? .blue : .secondary)
+                        .font(.title3)
+                }
+                .buttonStyle(.plain)
+            }
+
+            // Icon
+            Image(systemName: iconName)
+                .foregroundColor(.secondary)
+                .font(.title3)
+
+            // Info
+            VStack(alignment: .leading, spacing: 2) {
+                HStack {
+                    Text(file.name)
+                        .fontWeight(.medium)
+                        .lineLimit(1)
+
+                    if isFirstInGroup {
+                        Text("(Keep)")
+                            .font(.caption)
+                            .foregroundColor(.green)
+                            .padding(.horizontal, 4)
+                            .padding(.vertical, 2)
+                            .background(Color.green.opacity(0.1))
+                            .cornerRadius(4)
+                    }
+                }
+
+                Text(file.path)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.middle)
+            }
+
+            Spacer()
+
+            // Size
+            Text(file.formattedSize)
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .monospacedDigit()
+                .foregroundColor(.primary)
+
+            // Reveal in Finder button
+            Button(action: { revealInFinder() }) {
+                Image(systemName: "folder")
+                    .foregroundColor(.secondary)
+            }
+            .buttonStyle(.plain)
+            .opacity(isHovered ? 1 : 0)
+        }
+        .padding(.vertical, 6)
+        .contentShape(Rectangle())
+        .onHover { hovering in
+            isHovered = hovering
+        }
+    }
+
+    private var iconName: String {
+        switch file.fileType {
+        case .image: return "photo.fill"
+        case .video: return "film.fill"
+        case .audio: return "music.note"
+        case .document: return "doc.fill"
+        case .archive: return "doc.zipper"
+        case .application: return "app.fill"
+        case .diskImage: return "opticaldiscdrive.fill"
+        default: return "doc.fill"
+        }
+    }
+
+    private func revealInFinder() {
+        NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: file.path)
+    }
+}
+
 // MARK: - Options Enums
 enum MinSizeOption: Int {
     case mb10 = 10_000_000
@@ -778,6 +1038,17 @@ class LargeOldFilesViewModel: ObservableObject {
     @Published var lastFreedSpace: Int64 = 0
     @Published var lastDeletedCount: Int = 0
 
+    // Duplicate detection
+    @Published var duplicateGroups: [LargeOldFilesScanner.DuplicateFileGroup] = []
+    @Published var selectedDuplicateFiles: Set<UUID> = []
+    @Published var currentView: ViewMode = .largeOldFiles
+    @Published var scanDuplicates: Bool = false
+
+    enum ViewMode: Int {
+        case largeOldFiles = 0
+        case duplicates = 1
+    }
+
     private let scanner = LargeOldFilesScanner()
     private var allFiles: [LargeOldFilesScanner.LargeOldFile] = []
 
@@ -806,6 +1077,10 @@ class LargeOldFilesViewModel: ObservableObject {
             .reduce(0) { $0 + $1.size }
     }
 
+    var allFilesCount: Int {
+        allFiles.count
+    }
+
     func scan() async {
         scanState = .scanning(progress: "Starting scan...")
 
@@ -823,6 +1098,19 @@ class LargeOldFilesViewModel: ObservableObject {
         selectedFiles.removeAll()
         selectedCategory = nil
         selectedType = nil
+
+        // Find duplicates if enabled
+        if scanDuplicates {
+            duplicateGroups = await scanner.findDuplicates(files: result.files) { [weak self] progress in
+                Task { @MainActor in
+                    self?.scanState = .scanning(progress: progress)
+                }
+            }
+            selectedDuplicateFiles.removeAll()
+        } else {
+            duplicateGroups.removeAll()
+        }
+
         scanState = .completed(result)
     }
 
@@ -840,6 +1128,32 @@ class LargeOldFilesViewModel: ObservableObject {
 
     func selectNone() {
         selectedFiles.removeAll()
+    }
+
+    // Duplicate file methods
+    func toggleDuplicateSelection(_ file: LargeOldFilesScanner.LargeOldFile) {
+        if selectedDuplicateFiles.contains(file.id) {
+            selectedDuplicateFiles.remove(file.id)
+        } else {
+            selectedDuplicateFiles.insert(file.id)
+        }
+    }
+
+    func selectAllDuplicatesInGroup(_ group: LargeOldFilesScanner.DuplicateFileGroup) {
+        // Select all but the first file (keep one copy)
+        let filesToSelect = group.files.dropFirst()
+        for file in filesToSelect {
+            selectedDuplicateFiles.insert(file.id)
+        }
+    }
+
+    func selectNoneDuplicates() {
+        selectedDuplicateFiles.removeAll()
+    }
+
+    var selectedDuplicateSize: Int64 {
+        let selectedFiles = duplicateGroups.flatMap { $0.files }.filter { selectedDuplicateFiles.contains($0.id) }
+        return selectedFiles.reduce(0) { $0 + $1.size }
     }
 
     func selectVeryLarge() {
